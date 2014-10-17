@@ -28,7 +28,7 @@ $bot = Cinch::Bot.new do
       c.nick = ENV['IRC_NICK'] || c.user
     end
 
-    c.plugins.plugins = [Cinch::Plugins::CleverBot]
+    # c.plugins.plugins = [Cinch::Plugins::CleverBot]
   end
 
   on :message, /cocobot say:(.*)/i do |m,message|
