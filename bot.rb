@@ -231,25 +231,25 @@ bot = Cinch::Bot.new do
            when 300
              "Multiple Choices"
            when 301
-             "Moved Permanently (Will also return this extra header: Location: http://radbot.com)"
+             "Moved Permanently"
            when 302
-             "Found (Will also return this extra header: Location: http://radbot.com)"
+             "Found"
            when 303
-             "See Other (Will also return this extra header: Location: http://radbot.com)"
+             "See Other"
            when 304
-             "Not Modified (Will also return this extra header: Location: http://radbot.com)"
+             "Not Modified"
            when 305
-             "Use Proxy (Will also return this extra header: Location: http://radbot.com)"
+             "Use Proxy"
            when 306
              "Reserved"
            when 307
-             "Temporary Redirect (Will also return this extra header: Location: http://radbot.com)"
+             "Temporary Redirect"
            when 308
-             "Permanent Redirect (Will also return this extra header: Location: http://radbot.com)"
+             "Permanent Redirect"
            when 400
              "Bad Request"
            when 401
-             "Unauthorized (Will also return this extra header: WWW-Authenticate: Basic realm=\"Fake Realm\""
+             "Unauthorized"
            when 402
              "Payment Required"
            when 403
@@ -261,7 +261,7 @@ bot = Cinch::Bot.new do
            when 406
              "Not Acceptable"
            when 407
-             "Proxy Authentication Required (Will also return this extra header: Proxy-Authenticate: Basic realm=\"Fake Realm\")"
+             "Proxy Authentication Required"
            when 408
              "Request Timeout"
            when 409
@@ -327,7 +327,7 @@ bot = Cinch::Bot.new do
            else
              "Unassigned"
            end
-    m.reply "HTTP #{code}: #{resp}" if resp
+    m.reply "HTTP #{code}: #{resp} - more information https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" if resp
   end
 end
 bot.start
