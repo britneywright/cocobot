@@ -2,6 +2,9 @@
 #cocobot, based on https://github.com/csexton/radbot
 # and https://github.com/asheren/Bot and
 
+# TODO Add a help option
+# TODO Mod some of the replies to connect directly to APIs
+
 #ENV['IRC_SERVER'] = 'irc.freenode.com'
 require 'cinch'
 require 'open-uri'
@@ -22,22 +25,13 @@ def action_or_reply_response(m, list)
     end
 end
 
-IRC_ENV = ENV["IRC_ENV"] || "development"
-
 bot = Cinch::Bot.new do
   configure do |c|
-    c.server = ENV['IRC_SERVER']
+    c.server = 'irc.freenode.net'
     c.realname = 'cocobot'
-
-    if IRC_ENV == "development"
-      c.channels = ['#cocobot_dev']
-      c.user = 'cocobot_dev'
-      c.nick = 'cocobot_dev'
-    else
-      c.channels=[ENV['IRC_CHAN']]
-      c.user = ENV['IRC_USER'] || 'cocobot'
-      c.nick = ENV['IRC_NICK'] || c.user
-    end
+    c.channels = ['#novacodecoffee']
+    c.user = 'cocobot'
+    c.nick = 'cocobot'
     c.plugins.plugins = [Cinch::Plugins::Cleverbot]
   end
 
