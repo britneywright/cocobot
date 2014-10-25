@@ -34,7 +34,7 @@ bot = Cinch::Bot.new do
       c.nick = 'cocobot_dev'
     else
       c.channels=[ENV['IRC_CHAN']]
-      c.user = ENC['IRC_USER'] || 'cocobot'
+      c.user = ENV['IRC_USER'] || 'cocobot'
       c.nick = ENV['IRC_NICK'] || c.user
     end
     c.plugins.plugins = [Cinch::Plugins::Cleverbot]
