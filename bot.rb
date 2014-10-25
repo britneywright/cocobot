@@ -327,7 +327,7 @@ bot = Cinch::Bot.new do
            else
              "Unassigned"
            end
-    m.reply "HTTP #{code}: #{resp} - more information https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" if resp
+    m.reply "HTTP #{code}: #{resp} -  https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" if resp
   end
 end
 bot.start
