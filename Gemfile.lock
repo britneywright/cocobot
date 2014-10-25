@@ -2,14 +2,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     cinch (2.1.0)
-    cleverbot (0.2.0)
-      httparty (>= 0.8.1, < 1.0)
+    cleverbot (0.1.1)
+      httparty (~> 0.8.0)
     coderay (1.1.0)
-    httparty (0.13.1)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
-    json (1.8.1)
+    httparty (0.8.3)
+      multi_json (~> 1.0)
+      multi_xml
     method_source (0.8.2)
+    multi_json (1.10.1)
     multi_xml (0.5.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -22,5 +22,5 @@ PLATFORMS
 
 DEPENDENCIES
   cinch
-  cleverbot
+  cleverbot (= 0.1.1)
   pry
