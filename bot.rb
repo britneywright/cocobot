@@ -2,6 +2,7 @@
 #cocobot, based on https://github.com/csexton/radbot
 # and https://github.com/asheren/Bot and
 
+#ENV['IRC_SERVER'] = 'irc.freenode.com'
 require 'cinch'
 require 'open-uri'
 require 'json'
@@ -193,6 +194,140 @@ bot = Cinch::Bot.new do
       "http://24.media.tumblr.com/83f38af57b95f9f98204409cf1f7c37e/tumblr_mh3es6vGIT1rxnegyo5_500.gif",
       "http://www.reactiongifs.com/r/hllwn.gif",
     ]
+  end
+
+#
+# HTTP Status Codes
+#
+  on :message, /http.(\d\d\d)\b/i do |m, code_str|
+    code = Integer code_str
+    resp = case code
+           when 100
+             "Continue"
+           when 101
+             "Switching Protocols"
+           when 102
+             "Processing"
+           when 200
+             "OK"
+           when 201
+             "Created"
+           when 202
+             "Accepted"
+           when 203
+             "Non-Authoritative Information"
+           when 204
+             "No Content (Won't return a response body)"
+           when 205
+             "Reset Content (Won't return a response body)"
+           when 206
+             "Partial Content"
+           when 207
+             "Multi..Status"
+           when 208
+             "Already Reported"
+           when 226
+             "IM Used"
+           when 300
+             "Multiple Choices"
+           when 301
+             "Moved Permanently (Will also return this extra header: Location: http://radbot.com)"
+           when 302
+             "Found (Will also return this extra header: Location: http://radbot.com)"
+           when 303
+             "See Other (Will also return this extra header: Location: http://radbot.com)"
+           when 304
+             "Not Modified (Will also return this extra header: Location: http://radbot.com)"
+           when 305
+             "Use Proxy (Will also return this extra header: Location: http://radbot.com)"
+           when 306
+             "Reserved"
+           when 307
+             "Temporary Redirect (Will also return this extra header: Location: http://radbot.com)"
+           when 308
+             "Permanent Redirect (Will also return this extra header: Location: http://radbot.com)"
+           when 400
+             "Bad Request"
+           when 401
+             "Unauthorized (Will also return this extra header: WWW-Authenticate: Basic realm=\"Fake Realm\""
+           when 402
+             "Payment Required"
+           when 403
+             "Forbidden"
+           when 404
+             "Not Found"
+           when 405
+             "Method Not Allowed"
+           when 406
+             "Not Acceptable"
+           when 407
+             "Proxy Authentication Required (Will also return this extra header: Proxy-Authenticate: Basic realm=\"Fake Realm\")"
+           when 408
+             "Request Timeout"
+           when 409
+             "Conflict"
+           when 410
+             "Gone"
+           when 411
+             "Length Required"
+           when 412
+             "Precondition Failed"
+           when 413
+             "Request Entity Too Large"
+           when 414
+             "Request-URI Too Long"
+           when 415
+             "Unsupported Media Type"
+           when 416
+             "Requested Range Not Satisfiable"
+           when 417
+             "Expectation Failed"
+           when 418
+             "I'm a teapot"
+           when 420
+             "Enhance Your Calm"
+           when 422
+             "Unprocessable Entity"
+           when 423
+             "Locked"
+           when 424
+             "Failed Dependency"
+           when 425
+             "Reserved for WebDAV advanced collections expired proposal"
+           when 426
+             "Upgrade Required"
+           when 428
+             "Precondition Required"
+           when 429
+             "Too Many Requests"
+           when 431
+             "Request Header Fields Too Large"
+           when 500
+             "Internal Server Error"
+           when 501
+             "Not Implemented"
+           when 502
+             "Bad Gateway"
+           when 503
+             "Service Unavailable"
+           when 504
+             "Gateway Timeout"
+           when 505
+             "HTTP Version Not Supported"
+           when 506
+             "Variant Also Negotiates (Experimental)"
+           when 507
+             "Insufficient Storage"
+           when 508
+             "Loop Detected"
+           when 510
+             "Not Extended"
+           when 511
+             "Network Authentication Required"
+           else
+             "Unassigned"
+           end
+    m.reply "HTTP #{code}: #{resp}" if resp
   end
 end
 bot.start
