@@ -190,6 +190,9 @@ bot = Cinch::Bot.new do
     ]
   end
 
+  on :message, /.*(!source).*/i do |m|
+    m.reply "You can find me at https://github.com/NoVACodeCoffee/cocobot"
+  end
 #
 # HTTP Status Codes
 #
