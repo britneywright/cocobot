@@ -4,6 +4,12 @@
 
 # TODO Add a help option
 # TODO Mod some of the replies to connect directly to APIs
+# TODO register with imgur api
+# TODO Add random factor to all interactions to reduce some of the images flying by
+# remove coco-from-the-jetsons.jpg
+# Add new Coco images from the jetsons
+# Fix regex for coffee to only work when it's a separate word
+
 
 #ENV['IRC_SERVER'] = 'irc.freenode.com'
 require 'cinch'
