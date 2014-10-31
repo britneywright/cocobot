@@ -199,6 +199,15 @@ bot = Cinch::Bot.new do
   on :message, /.*(!source).*/i do |m|
     m.reply "You can find me at https://github.com/NoVACodeCoffee/cocobot"
   end
+
+  on :message, /.*(trick or treat).*/i do |m|
+    reply_random m, [
+      "http://i.giphy.com/h3wT24ejH7g4M.gif",
+      "http://i.giphy.com/prSCaIzAT6MnK.gif",
+      "http://i.giphy.com/5xtDarsqUvqDCmCIzpC.gif",
+      "http://i.giphy.com/eQZPrashbH9vy.gif",
+    ]
+  end  
 #
 # HTTP Status Codes
 #
